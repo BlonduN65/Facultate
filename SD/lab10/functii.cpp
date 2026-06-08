@@ -113,7 +113,7 @@ void BuildHeap_V1(int A[], int N) {
         int fiu = i;
         int parinte = fiu / 2;
         
-        
+
         while (parinte >= 1 && A[parinte] < A[fiu]) {
             swap(A[parinte], A[fiu]);
             fiu = parinte;
