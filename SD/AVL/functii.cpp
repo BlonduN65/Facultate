@@ -30,6 +30,7 @@ void RDD(AVL* &a){
 
     a->stg=aux2->drt;
     aux->drt=aux2->stg;
+
     aux2->stg=aux;
     aux2->drt=a;
     
@@ -40,6 +41,7 @@ void RDD(AVL* &a){
         aux->bf=1;
     else
         aux->bf=0;
+
     a=aux2;
 
 
@@ -48,8 +50,9 @@ void RSDD(AVL* &a){
     AVL* aux=a->drt;
     AVL* aux2=aux->stg;
 
-    a->drt=aux->stg;
+    a->drt=aux2->stg;
     aux->stg=aux2->drt;
+    
     aux2->drt=aux;
     aux2->stg=a;
 
