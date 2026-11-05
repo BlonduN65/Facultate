@@ -15,7 +15,7 @@ double exponential(double x){
 int main(){
     using FuncPtr = double(*)(double);
     FuncPtr functii[] = { radical, sinus_, exponential };
-    std::cout << std::format("{:>8} | {:>12} | {:>12} | {:>12}\n","x", "sqrt(x)", "sin(x)", "exp(x)");
+   // std::cout << std::format("{:>8} | {:>12} | {:>12} | {:>12}\n","x", "sqrt(x)", "sin(x)", "exp(x)");
 
     for(int i=1;i<=10;i++){
         double x=1+i*0.5;
@@ -24,7 +24,7 @@ int main(){
         double val_sin  = functii[1](x);
         double val_exp  = functii[2](x);
 
-        std::cout << std::format("{:>8.1f} | {:>12.4f} | {:>12.4f} | {:>12.4f}\n", x, val_sqrt, val_sin, val_exp);
+      //  std::cout << std::format("{:>8.1f} | {:>12.4f} | {:>12.4f} | {:>12.4f}\n", x, val_sqrt, val_sin, val_exp);
 
 
     }
