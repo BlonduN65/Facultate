@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Find My Besties</title>
+
+  <!-- Leaflet: https://leafletjs.com/examples/quick-start/ -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <div id="map"></div>
+
+  <aside class="sidebar">
+    <!-- Click the title bar to open or close the whole card -->
+    <details class="sheet" open>
+      <summary class="sidebar__header">
+        <h1 class="brand">📍 <span class="brand__text">Find My Besties</span></h1>
+      </summary>
+
+      <p class="loading" id="loading" hidden>
+        <span class="spinner" aria-hidden="true"></span> Loading your besties…
+      </p>
+
+      <form class="auth-form" id="auth-form">
+        <h2 id="auth-title">Log in</h2>
+
+        <label id="username-field" hidden>
+          Username
+          <input name="username" pattern="[a-z0-9_]{3,20}" autocomplete="off" disabled
+                 autocapitalize="none" spellcheck="false"
+                 title="3–20 characters: lowercase letters, numbers, underscore">
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" required autocomplete="email">
+        </label>
+        <label>
+          Password
+          <input type="password" name="password" required minlength="6" autocomplete="current-password">
+        </label>
+
+        <p class="error" id="auth-error" role="alert"></p>
+
+        <button class="btn btn-primary btn-block" type="submit" id="auth-submit">Log in</button>
+        <p class="muted">
+          <a href="#" id="auth-switch">No account yet? Sign up</a>
+        </p>
+      </form>
+
+      <div class="session" id="session" hidden>
+        <details class="panel" open>
+          <summary>You can see</summary>
+          <ul class="list" id="friends-list"></ul>
+        </details>
+
+        <details class="panel" open>
+          <summary>Can see you</summary>
+          <form class="inline-form" id="share-form">
+            <input id="share-username" name="username" placeholder="Friend's username" required
+                   autocomplete="off" autocapitalize="none" spellcheck="false" enterkeyhint="send">
+            <button class="btn btn-primary" type="submit">Share</button>
+          </form>
+          <ul class="list" id="shares-list"></ul>
+        </details>
+      </div>
+    </details>
+  </aside>
+
+  <script>
+    // This runs right away, before the app's JavaScript has downloaded.
+    // If Supabase saved a login in this browser, show "Loading…" instead of
+    // the login form so it doesn't flash on screen. main.js takes over later.
+    try {
+      const hasSavedLogin = Object.keys(localStorage)
+        .some((key) => key.startsWith('sb-') && key.endsWith('-auth-token'));
+      if (hasSavedLogin) {
+        document.querySelector('#auth-form').hidden = true;
+        document.querySelector('#loading').hidden = false;
+      }
+    } catch {
+      // localStorage can be blocked (e.g. some private windows): just show the form.
+    }
+  </script>
+
+  <button class="fab" id="locate-btn" type="button" title="Center on me" aria-label="Center on me">◎</button>
+
+  <!-- Top-right corner. ui.js hides #logout-btn when logged out; CSS then hides the whole box. -->
+  <div class="account">
+    <span class="account__user">
+      <span class="account__label">Logged in as</span>
+      <span class="username" id="username-label"></span>
+    </span>
+    <button class="btn btn-small" id="logout-btn" type="button" hidden>Log out</button>
+  </div>
+
+  <div class="toast" id="toast" role="status" hidden></div>
+</body>
+</html>

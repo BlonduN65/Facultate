@@ -1,0 +1,36 @@
+
+Să se implementeze clasa Vapor:
+- definire clasă într-un fișier header, în spațiul de nume (namespace) Porturi (0.5p + 0.5p)
+- membri privați: (1p)
+    nrContainere: int; // numărul de containere încărcate la bord
+    inMiscare: bool;   // (în enunț era scris "flaot" din greșeală) vaporul se află în mișcare sau nu
+    destinatie: char*; // orașul destinație, ex.: Constanța
+- metode publice definite în fișier sursă (.cpp):
+    ConstructorVid(); (1p) // inițializare membri cu valori implicite
+    ConstructorCuParametri(...); - parametrul nrContainere este parametru cu valoare predefinită (default): 150 (1p) // inițializarea membrilor se face cu valori date ca parametri
+    Destructor(); (1p)
+    Afisare(); (0.5p) // afișarea se realizează la ieșirea standard
+    Citire(); (0.75p) // citirea se realizează de la intrarea standard
+    Citire(_destinatie); (0.75p) // membrul destinatie se inițializează cu parametrul primit, iar restul membrilor sunt citiți de la intrarea standard
+    GetInMiscare(); (0.5p)
+    SetInMiscare(...); (0.5p) - parametrul inMiscare este parametru cu valoare predefinită (default): true
+    GetNrContainere(); (0.5p)
+    SetNrContainere(...); (0.5p)
+
+Cerințe (în funcția main()):
+- instanțiați obiecte de tip Vapor astfel încât să fie apelați cei doi constructori definiți;
+- puneți în evidență apelul funcțiilor membre;
+- gestiunea memoriei este efectuată de către clasă prin intermediul metodelor; (-0.5p în caz contrar)
+- proiectul trebuie să conțină 3 fișiere: (-(minus) 1p în caz de nerespectare)
+    * Vapor.h - fișier header (conține definiția clasei Vapor);
+    * Vapor.cpp - fișier sursă (conține definiții ale funcțiilor membre ale clasei Vapor);
+    * Main.cpp - fișier sursă (conține definiția funcției main()).
+
+Atenție!
+- pentru orice metodă definită în clasă trebuie să existe un apel de al acesteia în main() altfel punctajul aferent nu va fi obținut.
+- baza de notare este 1.
+- timp de lucru 1 oră.
+```[cite: 603]
+
+---
+

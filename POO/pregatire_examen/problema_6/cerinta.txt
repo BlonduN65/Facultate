@@ -1,0 +1,38 @@
+Subiect 3
+
+Cerințe:
+1. Creați o clasă Celula care să conțină următoarele:
+- 2 membri privați:
+    o Un membru numarMitocondrii de tip int
+    o Un membru dimensiune de tip double
+- Metode publice:
+    o (0.5p) Constructor fără argumente care să inițializeze variabilele membre.
+    o (0.5p) Constructor cu parametri care atribuie valorilor membrilor valorile primite ca parametri (se vor folosi liste de inițializare).
+        * Notă: cei doi constructori se pot combina într-unul singur folosind valori implicite ale parametrilor
+    o (0.5p) Câte două funcții Set și Get care să gestioneze accesul la variabilele membre.
+    o (0.5p) Supraîncărcarea unui operator unar la alegere care să returneze dimensiunea celulei.
+    o (0.5p) Supraîncărcarea operatorului + pentru a adăuga o valoare la dimensiunea celulei.
+    o (0.5p) Metodă de afișare a membrilor.
+
+2. Creați o clasă Organism. Aceasta trebuie să conțină ca membru privat un array (tablou unidimensional alocat static) de maxim 5 elemente de obiecte de tip Celula. Numărul de elemente ale array-ului se va reține tot într-o variabilă membră privată de tip unsigned int. Această clasă mai trebuie să conțină:
+    o (0.5p) O modalitate de a atribui valori elementelor array-ului
+    o (0.5p) O metodă de afișare a elementelor array-ului
+    o (0.5p) O metodă care să permită creșterea dimensiunii tuturor celulelor din array utilizând operatorii supraîncărcați în clasa Celula.
+
+3. (0.5p) Pentru oricare dintre clasele create, scrieți codul necesar pentru exemplificarea conceptului de Agregare
+
+Funcția main trebuie să conțină:
+1. (0.5p) Două obiecte Celula, câte unul pentru exemplificarea modului de lucru al fiecărui constructor creat.
+2. (0.5p) Exemple de folosire a supraîncărcărilor create.
+3. (0.5p) Apelarea funcției de afișare pentru a demonstra funcționalitățile menționate mai sus.
+4. (1p) Un obiect de tip Organism în care să adăugați trei obiecte Celula.
+5. (0.5p) Afișarea tuturor elementelor obiectului de tip Organism.
+6. (0.5p) Creșterea dimensiunii tuturor celulelor dintr-un obiect de tip Organism și afișarea rezultatelor.
+7. (0.5p) Exemplu de utilizare a agregării.
+
+Oficiu 1p.
+Observații:
+- Fiecare clasa va avea headerul + sursele proprii, iar definirea metodelor se va realiza in fisierul sursă (.cpp) – 2p dacă nu se respectă cerința
+- Clasele se pot completa, la nevoie, cu alte metode ajutătoare
+
+

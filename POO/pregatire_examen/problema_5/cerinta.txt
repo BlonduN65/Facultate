@@ -1,0 +1,37 @@
+Subiect 1
+
+Cerințe:
+1. Creați o clasă ContBancar care să conțină următoarele:
+- 2 membri privați:
+    o Un membru sold de tip double
+    o Un membru numarCont de tip int
+- Metode publice:
+    o (0.5p) Constructor fără argumente care să inițializeze variabilele membre.
+    o (0.5p) Constructor cu parametri care atribuie valorilor membrilor valorile primite ca parametri (se vor folosi liste de inițializare).
+        * Notă: cei doi constructori se pot combina într-unul singur folosind valori implicite ale parametrilor
+    o (0.5p) Câte două funcții Set și Get care să gestioneze accesul la variabilele membre.
+    o (0.5p) Supraîncărcarea unui operator unar la alegere care să returneze soldul contului.
+    o (0.5p) Supraîncărcarea operatorului - pentru a reduce soldul unui cont cu o valoare de tip double.
+    o (0.5p) Metodă de afișare a membrilor.
+
+2. Creați o clasă Banca. Aceasta trebuie să conțină ca membru privat un array (tablou unidimensional alocat static) de maxim 5 elemente de obiecte de tip ContBancar. Numărul de elemente ale array-ului se va reține tot într-o variabilă membră privată de tip unsigned int. Această clasă mai trebuie să conțină:
+    o (0.5p) O modalitate de a atribui valori elementelor array-ului
+    o (0.5p) O metodă de afișare a elementelor array-ului
+    o (0.5p) O metodă care să permită aplicarea unui comision exprimat în procente tuturor conturilor din array utilizând operatorii supraîncărcați în clasa ContBancar.
+
+3. (0.5p) Pentru oricare dintre clasele create, scrieți codul necesar pentru exemplificarea conceptului de Agregare
+
+Funcția main trebuie să conțină:
+1. (0.5p) Două obiecte ContBancar, câte unul pentru exemplificarea modului de lucru al fiecărui constructor creat.
+2. (0.5p) Exemple de folosire a supraîncărcărilor create.
+3. (0.5p) Apelarea funcției de afișare pentru a demonstra funcționalitățile menționate mai sus.
+4. (1p) Un obiect de tip Banca în care să adăugați trei obiecte ContBancar.
+5. (0.5p) Afișarea tuturor elementelor obiectului de tip Banca.
+6. (0.5p) Aplicarea unui comision tuturor conturilor dintr-un obiect de tip Banca și afișarea rezultatelor.
+7. (0.5p) Exemplu de utilizare a agregării.
+
+Oficiu 1p.
+Observații:
+- Fiecare clasa va avea headerul + sursele proprii, iar definirea metodelor se va realiza in fisierul sursă (.cpp) – 2p dacă nu se respectă cerința
+- Clasele se pot completa, la nevoie, cu alte metode ajutătoare
+```[cite: 8]

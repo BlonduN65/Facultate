@@ -1,0 +1,41 @@
+Să se creeze spațiul de nume (namespace) Auto (0.25p). În acest spațiu să se definească clasele de mai jos (0.5p + 0.5p). Să se implementeze clasa de bază Vehicul și o clasă derivată Automobil.
+
+Clasa de bază va avea:
+- membri (privați):
+    - marca: char*;
+    - vitezaMaxima: double;
+- metode (publice):
+    + ConstructorCuParametri(...); // toate argumentele predefinite
+    + ConstructorDeCopiere(...);
+    + Destructor();
+    + operator+=(char*); // concatenează șirul de caractere primit ca parametru la marcă
+    + void Afisare(void) const; // afișarea se realizează la ieșirea standard
+    + void Citire(void); // citirea se realizează de la intrarea standard
+
+Clasa derivată Automobil va avea:
+- membri (privați):
+    - masaMaxima: double;
+    - tipCombustibil: Combustibil; // enum Combustibil {electric, hibrid, diesel, benzina};
+- metode (publice):
+    + ConstructorCuParametri(...); 1p // toate argumentele predefinite
+    + ConstructorDeCopiere(...); 1p
+    + Destructor(); 0.5p
+    + operator+=(double); 1p // crește masa maximă cu valoarea parametrului
+    + void Afisare(void) const; 1p
+    + void Citire(void); 1p
+
+Notație:
++ public
+- privat
+
+Cerințe:
+- instanțiați obiecte de tip Automobil astfel încât să fie apelați toți constructorii definiți. Atenție la constructorii din clasa de bază;
+- supraîncărcați forma postfixată pentru operator-- aferent celor două clase ca funcție globală prietenă care modifică membrul de tip double din clasă (1.25p);
+- puneți în evidență apelarea funcțiilor operator+=() și operator-- pentru cele două clase;
+- actualizați funcțiile Afisare() și Citire() a.î. să evidențiați în funcția main() polimorfismul la run-time prin intermediul unui pointer la clasa de bază (inițializat atât cu adrese ale instanțelor clasei de bază, cât și cu adrese ale instanțelor clasei derivate). Prin intermediul unui pointer la clasa de bază se va apela citirea și afișarea de la intrarea/la ieșirea standard a informațiilor pentru fiecare tip de obiect în parte (1p);
+
+Atenție!
+- pentru orice metodă definită în clasă trebuie să existe un apel de al acesteia în main() altfel punctajul aferent nu va fi obținut;
+- pentru fiecare clasă trebuie să existe fișiere header (.h) și fișiere de implementări (.cpp) separate (în caz de nerespectare cerință - 1p);
+- baza de notare este 1p;
+- timp de lucru 1 oră.

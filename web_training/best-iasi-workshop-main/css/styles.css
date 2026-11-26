@@ -1,0 +1,418 @@
+:root {
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;
+  --color-text: #111827;
+  --color-muted: #6b7280;
+  --color-surface: #ffffff;
+  --color-border: #e5e7eb;
+  --color-online: #16a34a;
+  --color-offline: #9ca3af;
+  --color-error: #dc2626;
+  --radius: 12px;
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  --z-ui: 1100;
+  --z-toast: 1200;
+
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--color-text);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+/* TODO 1a: The map is invisible! Leaflet draws inside #map, but an empty
+   <div> has a height of 0. Make #map fill the whole screen.
+*/
+#map {
+}
+
+.sidebar {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: var(--z-ui);
+  width: 340px;
+  max-height: calc(100% - 24px);
+  overflow-y: auto;
+  padding: 18px 20px;
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.sidebar [hidden] { display: none; }
+
+.sidebar__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.sidebar__header::-webkit-details-marker { display: none; }
+
+.sheet > * + * { margin-top: 20px; }
+
+.brand {
+  margin: 0;
+  font-size: 1.1rem;
+  white-space: nowrap;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--color-border);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner { animation-duration: 2.4s; }
+}
+
+.session {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.account {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: var(--z-ui);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: calc(100% - 24px);
+  padding: 6px 6px 6px 14px;
+  background: var(--color-surface);
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+}
+
+.account:has(#logout-btn[hidden]) { display: none; }
+
+.account__user {
+  min-width: 0; 
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.account__user .username { color: var(--color-text); }
+
+.account .btn { border-radius: 999px; }
+
+.username { font-weight: 600; }
+
+.btn {
+  font: inherit;
+  padding: 6px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-surface);
+  cursor: pointer;
+}
+
+.btn:hover { background: #f3f4f6; }
+
+.btn-primary {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: white;
+}
+
+.btn-primary:hover { background: var(--color-primary-dark); }
+
+.btn-small { padding: 2px 8px; font-size: 0.85rem; }
+
+input:not([type="checkbox"]) {
+  font: inherit;
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+
+.fab {
+  position: fixed;
+  right: 12px;
+  bottom: 110px;
+  z-index: var(--z-ui);
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: var(--color-surface);
+  box-shadow: var(--shadow);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.panel summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-muted);
+  cursor: pointer;
+  list-style: none; }
+
+.panel summary::-webkit-details-marker { display: none; } 
+
+.panel summary::after,
+.sheet > summary::after {
+  content: "›";
+  font-size: 1.3rem;
+  line-height: 1;
+  color: var(--color-muted);
+  transition: transform 0.15s;
+}
+
+.panel[open] summary::after,
+.sheet[open] > summary::after { transform: rotate(90deg); }
+.panel[open] summary { margin-bottom: 8px; }
+
+.panel + .panel {
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border);
+}
+
+.inline-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.btn:disabled { opacity: 0.6; cursor: wait; }
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 8px;
+  border-radius: 8px;
+}
+
+.list li.clickable { cursor: pointer; }
+.list li.clickable:hover { background: #f3f4f6; }
+
+.list .empty {
+  padding: 12px;
+  background: #f9fafb;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.list__name {
+  flex: 1;
+  min-width: 0;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  white-space: nowrap;
+}
+
+#friends-list li:not(.empty) {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 10px;
+  row-gap: 2px;
+}
+
+#friends-list .status-dot { grid-row: span 2; }
+
+.list__meta {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-offline);
+  flex-shrink: 0;
+}
+
+.status-dot.is-online { background: var(--color-online); }
+
+.friend-pin-wrapper {
+  background: none;
+  border: none;
+}
+
+.friend-pin {
+  position: relative;
+  width: 36px;
+  height: 36px;
+}
+
+.friend-pin__initial {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 3px solid white;
+  background: var(--pin-color, var(--color-primary));
+  color: white;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+}
+
+.friend-pin__name {
+  position: absolute;
+  top: 38px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.friend-pin.is-offline { opacity: 0.45; filter: grayscale(1); }
+
+.auth-form h2 {
+  font-size: 1rem;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--color-text);
+  margin: 0 0 12px;
+}
+
+.auth-form label {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.auth-form label input { margin-top: 4px; font-weight: normal; }
+
+.btn-block { width: 100%; }
+
+.muted {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.error {
+  color: var(--color-error);
+  font-size: 0.9rem;
+  min-height: 1.2em;
+  margin: 0 0 8px;
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  z-index: var(--z-toast);
+  max-width: calc(100% - 32px);
+  padding: 10px 16px;
+  border-radius: var(--radius);
+  background: var(--color-text);
+  color: white;
+  box-shadow: var(--shadow);
+}
+
+.toast.is-error { background: var(--color-error); }
+
+@media (max-width: 640px) {
+  .sidebar {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-height: 55%;
+    max-height: 55dvh; 
+    padding: 16px 20px calc(16px + env(safe-area-inset-bottom)); 
+    border-radius: 16px 16px 0 0;
+    overscroll-behavior: contain; 
+  }
+
+  .btn { min-height: 44px; padding: 8px 14px; }
+  .btn-small { min-height: 36px; padding: 6px 12px; font-size: 0.9rem; }
+  .list li { min-height: 48px; }
+  .panel summary { min-height: 44px; }
+
+  input:not([type="checkbox"]) { font-size: 16px; min-height: 44px; }
+
+  .sheet > summary::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    width: 36px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--color-border);
+    transform: translateX(-50%);
+  }
+
+  .sheet > summary { min-height: 32px; }
+
+  .account {
+    top: calc(12px + env(safe-area-inset-top));
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: calc(100% - 136px); 
+  }
+
+  .account__label { display: none; } 
+
+  .fab {
+    top: calc(12px + env(safe-area-inset-top));
+    bottom: auto;
+  }
+
+  .toast {
+    bottom: auto;
+    top: calc(68px + env(safe-area-inset-top));
+  }
+}

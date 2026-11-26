@@ -1,0 +1,43 @@
+Bună ziua stimați telespectatori!!!!!!
+
+Să se creeze un namespace Vehicule în care să existe o clasă Automobil și derivata ei Motocicleta.
+
+Clasa Automobil să fie de forma:
+
+class Automobil
+{
+private:
+- char* marca;
+
+public:
+- ConstructorVid()
+- ConstructorCuParametrii(...)
+- ConstructorDeCopiere(...)
+- operator = (...)
+
+- void Afisare(void) // se afiseaza la iesire standard. (Nu mă întrebați ce înseamnă)
+- void Citire(void) // se citește la intrarea standard. (La fel ca mai sus)
+};
+
+class Motocicleta
+{
+private:
+- double vitezaMaxima;
+
+public:
+- ConstructorVid()
+- ConstructorCuParametrii(...)
+- ConstructorDeCopiere(...)
+- operator = (...)
+
+- void Afisare(void) // se afiseaza la iesire standard. (Nu mă întrebați ce înseamnă)
+- void Citire(void) // se citește la intrarea standard. (La fel ca mai sus)
+};
+
+Să se creeze o funcție prietenă operatorul == ( ... ) pentru ambele clase. ( NU MAI REȚIN DACĂ ERA PT AMÂNDOUĂ ) // cred ca asa era.
+Să se pună în evidență folosirea fiecărei metode publice din fiecare clasă ( adică cout<<"S-a apelat..."; )
+
+Și cireașa de pe tort.
+
+Să se creeze o funcție Afișare și Citire VIRTUALE. ( efectiv e legat de polimorfism ) // gg domnu profesor Lupu
+`

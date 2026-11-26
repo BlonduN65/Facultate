@@ -1,0 +1,34 @@
+Cerințe:
+1. Creați o clasă HardDisk care să conțină următoarele:
+- 2 membri privați:
+    o Un membru capacitate de tip double
+    o Un membru marca de tip std::string
+- Metode publice:
+    o (0.5p) Constructor fără parametri care să inițializeze variabilele membre.
+    o (0.5p) Constructor cu parametri care atribuie valorilor membrilor valorile primite ca parametri (se vor folosi liste de inițializare).
+        * Notă: cei doi constructori se pot combina într-unul singur folosind valori implicite ale parametrilor
+    o (0.5p) Supraîncărcarea unui operator unar la alegere care să returneze capacitatea hard disk-ului.
+    o (0.5p) Metodă de afișare a membrilor.
+
+2. Creați o clasă Calculator. Aceasta trebuie să conțină ca membru privat un vector (std::vector, nu array!) de obiecte de tip HardDisk. Această clasă mai trebuie să conțină:
+    o (0.5p) O modalitate de a atribui valori elementelor vectorului
+    o (0.5p) O metodă de afișare a elementelor vectorului
+    o (0.5p) O metodă care să permită scăderea capacității tuturor hard disk-urilor din vector cu un procent (procentul va fi dat ca parametru). De exemplu, capacitatea se va înjumătăți dacă acest procent e de 50. Trebuie să găsiți o metodă de a avea acces la membrul privat capacitate al fiecărui HardDisk, fără a face acel membru public!
+
+Funcția main trebuie să conțină:
+1. (0.5p) Două obiecte HardDisk, câte unul pentru exemplificarea modului de lucru al fiecărui constructor creat.
+2. (0.5p) Exemplu de folosire a supraîncărcării.
+3. (0.5p) Apelarea funcției de afișare pentru a demonstra funcționalitățile menționate mai sus.
+4. (1p) Un obiect de tip Calculator în care să adăugați trei obiecte HardDisk.
+5. (0.5p) Afișarea tuturor elementelor obiectului de tip Calculator.
+6. (0.5p) Scăderea capacității tuturor hard disk-urilor dintr-un obiect de tip Calculator și afișarea rezultatelor.
+7. (1.0p) Sortarea elementelor vectorului utilizând funcția std::sort. Se pot sorta elementele oricum, după orice criteriu. Sortarea se poate face oriunde în cod.
+8. (0.5p) Exemplificați conceptul de template la funcție. Puteți face orice funcție doriți, dar trebuie să dați un exemplu de utilizare pe obiectele create.
+9. (0.5p) Pentru oricare dintre clasele create, scrieți codul necesar pentru exemplificarea conceptului de Agregare.
+
+Oficiu 1p.
+Observații:
+- Fiecare clasa va avea headerul + sursele proprii, iar definirea metodelor se va realiza in fisierul sursă (.cpp) – 2p dacă nu se respectă cerința
+- Dacă se face orice membru (variabilă) al vreunei clase public, punctajul se va înjumătăți!
+- Clasele se pot completa, la nevoie, cu alte metode ajutătoare
+```[cite: 7]
